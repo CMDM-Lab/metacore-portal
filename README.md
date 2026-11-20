@@ -46,6 +46,20 @@ web.cmdm.tw/metacore_portal/* ── 301 (cmdm6) ──┘
   改標題文字後，指向它的連結也要改。測試會抓出斷掉的錨點。
 - 新增下載檔案時不用填 `legacy_id`。`legacy_id` 只給舊站的下載連結轉址用。
 
+## 舊網址轉址（cmdm6）
+
+`deploy/cmdm6-metacore-portal-redirect.conf` 是 cmdm6 上
+`/etc/apache2/conf-available/metacore-portal-redirect.conf` 的正本，
+由 `/etc/apache2/sites-available/000-default-le-ssl.conf` 以 `Include` 載入
+（取代原本的 `Alias /metacore_portal` 區塊；備份在同目錄 `.bak-20261120`）。
+:80 的 vhost 會先把所有請求轉到 https，所以只改 https 的 vhost。
+
+- 舊下載連結 `index.php/downloads?task=download&id=N` 依 `downloads.yaml` 的 `legacy_id` 轉到新檔案。
+- 改了 `legacy_id` 或檔名，要同步改這個檔並重新放到 cmdm6（需要 sudo，之後 `apache2ctl configtest && apache2ctl graceful`）。
+- 從外部用 curl 測會拿到 Cloudflare challenge（403、`cf-mitigated: challenge`），不是轉址壞了。
+  要驗證轉址，在 cmdm6 上測 origin：
+  `curl -sk -o /dev/null -w '%{http_code} %{redirect_url}\n' -H 'Host: web.cmdm.tw' https://127.0.0.1/metacore_portal/index.php/faq`
+
 ## 本機預覽
 
 ```bash
