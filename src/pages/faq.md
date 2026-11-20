@@ -34,7 +34,7 @@ Targeted metabolomics analysis可針對一定數量已知代謝物，藉由比�
 
 ### 1.4. 如何選擇分析平台?
 
-一般來說，若是貴單位已經有明確的分子target則建議使用 targeted analysis項目，如果沒有特定的目標則建議先使用LC-MS metabolic profiling或是GC-MS metabolomic profiling 做初步分析; 若想看的代謝物屬極性較高分子，可選擇LC-MS polar metabolic profiling ; 若是想看脂質的變化則建議選擇LC-MS lipidomic profiling 或是Fatty Acid Analysis。
+一般來說，若是貴單位已經有明確的分子target則建議使用 targeted analysis項目，如果沒有特定的目標則建議先使用LC-MS metabolic profiling做初步分析; 若想看的代謝物屬極性較高分子，可選擇LC-MS polar metabolic profiling ; 若是想看脂質的變化則建議選擇LC-MS lipidomic profiling 或是Fatty Acid Analysis。
 
 ### 1.5. 是否可以協助尋找某一種代謝物？
 
@@ -67,7 +67,6 @@ Untargeted metabolomics profiling analysis試著偵測單一樣品中所有包�
 | LC-MS metabolic profiling<br>小分子代謝體分析 | NA | 50-100 mg | 100 μl | 100 μl | 100 μl | 100 μl | 10^6 | 100 μl |  |
 | LC-MS polar metabolic profiling<br>極性代謝體分析 | NA | 50-100 mg | 100 μl | 100 μl | 100 μl | 100 μl | 10^6 | 100 μl |  |
 | LC-MS lipidomic profiling<br>脂質代謝體分析 | NA | 50-100 mg | 100 μl | 100 μl | 100 μl | 100 μl | 10^6 | 100 μl | 視欲測試lipid而定 |
-| GC-MS metabolic profiling<br>小分子代謝體分析 | NA | 50-100 mg | 100 μl | 100 μl | 100 μl | 100 μl | 10^6 | 100 μl |  |
 | Fatty Acid Analysis<br>C14\~C26脂肪酸相對定量 | NA | 50-100 mg | 100 μl | 100 μl | testing | testing | testing | testing |  |
 
 ### 2.2. 血液尿液等臨床檢體的檢體收集注意事項?
@@ -88,49 +87,43 @@ Untargeted metabolomics profiling analysis試著偵測單一樣品中所有包�
 
 ## 3. 實驗分析流程詢問
 
-### 3.1. 每個樣本會有幾個replicate ？
+### 3.1. 每個樣本會測量幾次？
 
-本核心實驗室採用technical replicate，即同樣的樣本採取重覆相同測量，而產生的資料，確認訊號產生不是被雜訊所影響。在LC-MS實驗中為3 technical replicates per sample，GC-MS 為 1 technical replicate per sample。
+目前每個樣本以單次進樣（single injection）分析。資料品質以各樣品總訊號強度、樣本間相關性與 PCA 分群檢查，結果列在報告第 2 章「數據品質」。
 
-### 3.2. Technical replicate 再現性是否會影響到代謝物挑選？
+### 3.2. 訊號偵測與代謝物鑑定方式為何？
 
-代謝物挑選是選取至少兩個replicates都有出現的peak，我們才會認為該代謝物是存在於樣品中。關於再現性，我們會在報告最後一欄CV (coefficient of variation)，以此數值代表此peak是否具有一定再現性，供您在分析上做取捨的參考。一般建議使用[FDA](http://www.fda.gov/downloads/Drugs/Guidances/ucm070107.pdf)提供的CV條件 (cv = 100\*s/m)， 選CV 15%以下會是比較具有意義的peak。
+我們以 [MZmine 4](https://mzmine.org/) 進行 LC-MS 訊號偵測（feature detection），取得每個訊號的 m/z、滯留時間（retention time, RT）與波峰高。
 
-### 3.3. Peak 偵測方式為何？
+之後與本核心實驗室建立的標準品資料庫比對 m/z（誤差 10 ppm 以內）與滯留時間，比對成功的訊號才標註為該代謝物。脂質體分析使用脂質標準品資料庫。
 
-在LC-MS上是用本核心實驗室開發的TIPick軟體偵測Peaks，會針對peak shape 評分，唯有分數超過門檻值的peak會留下來，並只保留出現超過一定比例replicate的peak。
+比對後的資料依樣品型態正規化：
 
-舉例說明：
+- 組織樣品：依樣品秤重正規化。
+- 其他樣品（血漿、血清、尿液、細胞等）：依各樣品總訊號強度正規化。
 
-peak A在總共3個replicate中，在2個replicate被偵測到，peak A 將被保留；
+未偵測到的數值以該代謝物最小值的一半補值，再取 log₂ 轉換後進行統計分析。
 
-peak B在總共3個replicate中，只在1個replicate被偵測到，peak B 將被捨去。
+### 3.3. 統計分析方法為何？
 
-在GC-MS上則是採用本核心開發的IDMass軟體來完成此動作，首先會挑出明顯的elution profiles，並對選定之elution profile偵測local maximal，再對各elution profile同時間點之訊號進行訊號強度排序，並只保留前10大local maxima，最後統計該時間點之local maxima 數量，若超過一定門檻值，則該時間點有peak存在。
+報告包含以下分析：
 
-Citation:
+- **多變量分析**：PCA 檢視整體分群與離群樣品；PLS-DA 以 5-fold 交叉驗證計算 Q²，並以 200 次 permutation test 檢驗模型；以 VIP 值排序各代謝物對分組的貢獻度。
+- **單變量分析**：兩組比較使用 Welch's t-test，配對設計使用 paired t-test。多重比較以 Benjamini–Hochberg 法計算 FDR。倍數變化（fold change, FC）以 log₂ 轉換後的資料計算。
+- **代謝途徑分析**：以顯著代謝物進行 KEGG 代謝途徑富集分析（over-representation analysis）。
 
-TIPick: Ho, T. J., Kuo, C. H., Wang, S. Y., Chen, G. Y., & Tseng, Y. J. (2013). True ion pick (TIPick): a denoising and peak picking algorithm to extract ion signals from liquid chromatography/mass spectrometry data. *Journal of Mass Spectrometry*, *48*(2), 234-242.
+顯著代謝物以分層標準篩選。依序套用以下標準，直到篩出 3 個以上的代謝物：
 
-IDMass:
+| 層級 | 標準 | 說明 |
+|---|---|---|
+| Tier 1 | FDR < 0.05 | 最嚴格，已校正多重比較 |
+| Tier 2 | raw p < 0.05 | 未校正，需謹慎解讀 |
+| Tier 3 | VIP > 1.0 且 Q² > 0.3 | 模型導向，屬探索性 |
+| Tier 4 | FC > 1.5 且 raw p < 0.1 | 效果量優先，屬探索性 |
 
-### 3.4. 是否會根據實驗設計選用不同的統計方式？
-
-一般未指明分析會採用基本的統計分析 (Kruskal test, T-test, and Wilcoxon rank sum test)，並根據以下判斷原則採用不同的統計方式：
-
-1\. Kruskal test: 多組別 (多於兩組)比較。
-
-2\. Student’s T-test: 兩個組別比較，各組中樣本數大於10。
-
-3\. Wilcoxon rank sum test ：兩個組別比較，各組中樣本數不大於10。
+樣本數少時（例如每組 3 個），通常無法達到 Tier 1，報告會註明實際採用的層級。
 
 至於適當的統計方式建議，可以在您取得分析報告後與**Metacore Lab** (ntumetacore@gmail.com)聯絡並與曾宇鳳教授約時間討論並詢問是否有合適或是建議的統計分析方式。
-
-**相關閱讀：**
-
-1\. Myles Hollander and Douglas A. Wolfe (1973), Nonparametric Statistical Methods. New York: John Wiley & Sons. Pages 115–120.
-
-2\. David F. Bauer (1972), Constructing confidence sets using rank statistics. Journal of the American Statistical Association 67, 687–690.
 
 ## 4. 報告解讀詢問
 
@@ -148,13 +141,9 @@ PeakName後面\[M+H\]+或\[M+Na\]+代表小分子經過離子化之後帶有氫�
 
 ### 4.2. 報告中數值代表的意思為何？
 
-一般使用者常會誤認為報告中數值即為偵測到之代謝物濃度，但此數值真正意思為**訊號強度**：可以視為和濃度有正比關係。至於數值0則是代表是扣除空白樣品(solvent blank)後的代謝體波峰高，雖然有偵測到，但該代謝體並非來自樣本而可能是來自背景訊號。
+一般使用者常會誤認為報告中數值即為偵測到之代謝物濃度，但此數值真正意思為**訊號強度**：可以視為和濃度有正比關係。原始 peak table 中的數值 0 代表該樣品沒有偵測到這個訊號；統計分析前會以該代謝物最小值的一半補值（見 3.2）。
 
-### 4.3. 報告中波峰高數值是計算replicates平均或是中位數？
-
-是以中位數計算。取平均可能會因其中存在波峰高為0的technical replicate，使取平均後大幅影響真正波峰高數值。
-
-### 4.4. 報告的結果是定量還是定性？
+### 4.3. 報告的結果是定量還是定性？
 
 我們提供的服務有分相對定量和絕對定量
 
@@ -166,8 +155,6 @@ LC-MS lipidomic profiling
 
 LC-MS polar metabolic profiling (HILIC column)
 
-GC-MS metabolic profiling
-
 Fatty Acid Relative Quantitation Analysis - 23種脂肪酸相對定量分析
 
 2\. 絕對定量(提供絕對濃度值)：
@@ -176,25 +163,24 @@ Fatty Acid Absolute Quantitation Analysis - 23種脂肪酸絕對定量分析
 
 如果在相對定量研究中發現具有統計差異的代謝物或是想對有興趣的代謝物做定量的分析，請向**Metacore Lab** (ntumetacore@gmail.com)聯絡。我們將為您做進一步的說明。
 
-### 4.5. 分析報告包含許多檔案，我該用哪一個 ？
+### 4.4. 分析報告包含許多檔案，我該用哪一個？
 
-報告壓縮檔內含有以下資料：
+報告以壓縮檔交付。解壓縮後請先看 README.txt，再用瀏覽器開啟 report.html。
 
-1\. Boxplot\_\*\_Analysis_1 （\*可能為pos/neg代表LC-MS報告，若為GC-MS則為GC-MS報告）
+| 檔案 | 內容 |
+|---|---|
+| analysis_N/report.html | 主要報告：數據品質、PCA／PLS-DA、火山圖、顯著代謝物、熱圖、代謝途徑分析。第 6 章 Methods 為英文，可供撰寫論文參考 |
+| analysis_N/figures/ | 報告中各圖的 300 DPI 圖檔（PNG、PDF） |
+| analysis_N/significant_metabolites.csv | 顯著代謝物清單 |
+| analysis_N/tier_result.txt | 採用的顯著性層級與代謝物數量 |
+| analysis_N/pathway/pathway_results.csv | 代謝途徑分析結果 |
+| results_targeted_metaboanalyst_analysis_N.csv | 正規化後的代謝物矩陣，可匯入 MetaboAnalyst 做進一步分析 |
+| \*_peak_table.csv | 比對到標準品的代謝物原始波峰高（未正規化） |
+| \*_MappingTable.csv | 樣本與分組對應表 |
 
-存放有統計差異的箱型圖 (png)
+每個比較組合（Analysis）有一個 analysis_N 資料夾。
 
-2\. MetaCoreResult\_\*\_Analysis_1
-
-含有統計分析完有顯著差異之代謝體在各組間的資訊
-
-3\. PeakTable\_\*
-
-紀錄完整的各樣本在各代謝物中的波峰值
-
-4\. PathwayAnalysis\_\*
-
-存放有Pathway Enrichment Analysis報告
+想先看報告的樣子，可以下載[示範報告](../files/metacore-demo-report.zip)。示範報告的內容全部為模擬資料（小鼠肝臟，Control vs. 高脂飲食，每組 3 個樣本），不可引用。
 
 ## 5. 未分類之詢問
 
@@ -204,7 +190,19 @@ Fatty Acid Absolute Quantitation Analysis - 23種脂肪酸絕對定量分析
 
 ### 5.2. 請問要如何引用你們的實驗數據處理方法？
 
-所有在LC-MS平台上分析完的數據透過TIPick這套演算法分析，而資料若有涉及多個batch，則會使用到BatchNormalizer這套演算法來解決分批樣本處理過程中產生的訊號大小差異。另外若有申請metabolic pathway analysis，則需要引用3omics。
+現行分析流程的方法說明在報告第 6 章（Methods），可直接參考。建議引用以下文獻：
+
+Hung, Y.-A., Kuo, T.-C., Tseng, Y. J., et al. (2025). Identifying novel metabolites in children with attention-deficit hyperactivity disorder through metabolome profiling. *Translational Psychiatry*, *15*, 180. ([連結](https://doi.org/10.1038/s41398-025-03393-5))
+
+Chen, C.-H. S., Kuo, T.-C., Kuo, H.-C., Tseng, Y. J., Kuo, C.-H., Yuan, T.-H., & Chan, C.-C. (2021). Lipidomics of children and adolescents exposed to multiple industrial pollutants. *Environmental Research*, *201*, 111448. ([連結](https://doi.org/10.1016/j.envres.2021.111448))
+
+訊號偵測使用 MZmine，多變量分析使用 mixOmics：
+
+Schmid, R., Heuckeroth, S., Korf, A., Smirnov, A., et al. (2023). Integrative analysis of multimodal mass spectrometry data in MZmine 3. *Nature Biotechnology*, *41*, 447–449. ([連結](https://doi.org/10.1038/s41587-023-01690-2))
+
+Rohart, F., Gautier, B., Singh, A., & Lê Cao, K.-A. (2017). mixOmics: An R package for 'omics feature selection and multiple data integration. *PLOS Computational Biology*, *13*(11), e1005752. ([連結](https://doi.org/10.1371/journal.pcbi.1005752))
+
+**早期案件**：以下為早期分析流程使用的方法。早期案件的數據透過TIPick這套演算法分析，而資料若有涉及多個batch，則會使用到BatchNormalizer這套演算法來解決分批樣本處理過程中產生的訊號大小差異。另外若有申請metabolic pathway analysis，則需要引用3omics。
 
 以下為處理過程中提及之數據處理方法之論文連結與APA format citation。
 

@@ -21,3 +21,5 @@ files:
   - title: 細胞萃取流程
     file: cell-extraction-protocol.pdf
     legacy_id: 6
+  - title: 示範報告（模擬資料，不可引用）
+    file: metacore-demo-report.zip
