@@ -18,23 +18,9 @@ toc: true
 
 ### 1.2. 代謝體核心實驗室提供那些服務項目?
 
-目前核心實驗室已經完成開發的項目如下表所示，如有特別需求，需要客製化服務則請與實驗室PI聯絡。
+目前核心實驗室提供的服務項目與價格，請見[收費辦法](../pricing/)。如有特別需求，需要客製化服務則請與實驗室PI聯絡。
 
-| # | Packages | 說明 | Type |
-|---|---|---|---|
-| 1 | LC-MS metabolic profiling | 小分子代謝體分析，如果沒有特定標的代謝物建議先申請此項分析。 | Profiling |
-| 2 | LC-MS untargeted profiling, including metabolic profiling | 無特定標的小分子代謝體分析，包含小分子代謝體分析 | Profiling |
-| 3 | LC-MS polar metabolic profiling | 極性代謝體分析 | Profiling |
-| 4 | LC-MS lipidomic profiling | 脂質代謝體分析 | Profiling |
-| 5 | GC-MS metabolic profiling |  | Profiling |
-| 6 | Fatty Acid Relative Quantitation Analysis 相對定量分析 | C12\~C26 二十三種脂肪酸相對定量 | Targeted analysis |
-| 7 | Fatty Acid Absolute Quantitation Analysis 絕對定量分析 | C12\~C26 二十三種脂肪酸絕對定量 | Targeted analysis |
-| 8 | Sphingolipid Relative Quantitation Analysis | 十六種Sphingolipid相對定量分析 | Targeted analysis |
-| 9 | Fecal Short Chain Fatty Acid analysis | C2\~C5六種短鍊脂肪酸絕對定量 | Targeted analysis |
-| 10 | Choline, Carnitine, Trimethylamine, Trimethylamine N-oxide analysis (Plasma, Urine) | Choline, Carnitine, Trimethylamine, TMAO絕對定量 | Targeted analysis |
-| 11 | 標的代謝物定量 | 收費依不同代謝物而異 | Targeted analysis |
-
-\* Fatty acid Analysis目前設計為血液的萃取方法，若其他的樣品基質，都會需要再做萃取開發條件上的確認，需要一段時間才能建立。
+Fatty acid Analysis目前設計為血液的萃取方法，若其他的樣品基質，都會需要再做萃取開發條件上的確認，需要一段時間才能建立。
 
 ### 1.3. 如何申請代謝體核心實驗室的各項服務?
 

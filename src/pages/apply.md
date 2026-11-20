@@ -31,17 +31,7 @@ title: 申請服務
 
 ### 1.2. 代謝體核心實驗室提供那些服務項目?
 
-目前核心實驗室已經完成開發的項目如下表所示，如有特別需求，需要客製化服務則請與實驗室PI聯絡。
-
-| # | Packages | 說明 | Type |
-|---|---|---|---|
-| 1 | LC-MS targeted metabolic profiling |  | Profiling |
-| 2 | LC-MS untargeted metabolic profiling | 包含LC-MS targeted metabolic profiling | Profiling |
-| 3 | LC-MS polar metabolic profiling |  | Profiling |
-| 4 | LC-MS lipidomic profiling |  | Profiling |
-| 5 | Fatty Acid Analysis相對定量 | C14\~C26脂肪酸相對定量 | Targeted analysis |
-| 6 | Fatty Acid Analysis絕對定量 | C14\~C26脂肪酸絕對定量 | Targeted analysis |
-| 7 | 標的代謝物定量 | 收費依不同代謝物而異 | Targeted analysis |
+目前核心實驗室提供的服務項目與價格，請見[收費辦法](../pricing/)。如有特別需求，需要客製化服務則請與實驗室PI聯絡。
 
 ### 1.3. 如何申請代謝體核心實驗室的各項服務?
 

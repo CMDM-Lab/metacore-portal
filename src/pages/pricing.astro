@@ -33,4 +33,9 @@ const effective = data.effective ? data.effective.replaceAll('-', '.') : null;
     </section>
   ))}
   <p class="note">{data.unit_note}</p>
+  {data.notes?.length > 0 && (
+    <ul class="note">
+      {data.notes.map((n) => <li>{n}</li>)}
+    </ul>
+  )}
 </Base>
