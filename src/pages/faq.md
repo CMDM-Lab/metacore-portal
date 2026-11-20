@@ -14,7 +14,9 @@ toc: true
 
 我們代謝體核心的服務流程如下圖所示。
 
-![](../assets/images/service-flow.png)
+<div class="diagram" data-diagram="service-flow"></div>
+
+下載：[樣品收送記錄表](../files/sample-submission-record.docx)、[樣品分組表（Mapping Table）](../files/mapping-table.csv)、[Mapping Table 範例](../files/mapping-table-example.xlsx)
 
 ### 1.2. 代謝體核心實驗室提供那些服務項目?
 
@@ -169,14 +171,14 @@ Fatty Acid Absolute Quantitation Analysis - 23種脂肪酸絕對定量分析
 
 | 檔案 | 內容 |
 |---|---|
-| analysis_N/report.html | 主要報告：數據品質、PCA／PLS-DA、火山圖、顯著代謝物、熱圖、代謝途徑分析。第 6 章 Methods 為英文，可供撰寫論文參考 |
-| analysis_N/figures/ | 報告中各圖的 300 DPI 圖檔（PNG、PDF） |
-| analysis_N/significant_metabolites.csv | 顯著代謝物清單 |
-| analysis_N/tier_result.txt | 採用的顯著性層級與代謝物數量 |
-| analysis_N/pathway/pathway_results.csv | 代謝途徑分析結果 |
-| results_targeted_metaboanalyst_analysis_N.csv | 正規化後的代謝物矩陣，可匯入 MetaboAnalyst 做進一步分析 |
-| \*_peak_table.csv | 比對到標準品的代謝物原始波峰高（未正規化） |
-| \*_MappingTable.csv | 樣本與分組對應表 |
+| `analysis_N/report.html` | 主要報告：數據品質、PCA／PLS-DA、火山圖、顯著代謝物、熱圖、代謝途徑分析。第 6 章 Methods 為英文，可供撰寫論文參考 |
+| `analysis_N/figures/` | 報告中各圖的 300 DPI 圖檔（PNG、PDF） |
+| `analysis_N/significant_metabolites.csv` | 顯著代謝物清單 |
+| `analysis_N/tier_result.txt` | 採用的顯著性層級與代謝物數量 |
+| `analysis_N/pathway/pathway_results.csv` | 代謝途徑分析結果 |
+| `results_targeted_metaboanalyst_analysis_N.csv` | 正規化後的代謝物矩陣，可匯入 MetaboAnalyst 做進一步分析 |
+| `*_peak_table.csv` | 比對到標準品的代謝物原始波峰高（未正規化） |
+| `*_MappingTable.csv` | 樣本與分組對應表 |
 
 每個比較組合（Analysis）有一個 analysis_N 資料夾。
 

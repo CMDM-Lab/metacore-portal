@@ -27,7 +27,9 @@ title: 申請服務
 
 我們代謝體核心的服務流程如下圖所示。
 
-![](../assets/images/service-flow.png)
+<div class="diagram" data-diagram="service-flow"></div>
+
+下載：[樣品收送記錄表](../files/sample-submission-record.docx)、[樣品分組表（Mapping Table）](../files/mapping-table.csv)、[Mapping Table 範例](../files/mapping-table-example.xlsx)
 
 ### 1.2. 代謝體核心實驗室提供那些服務項目?
 

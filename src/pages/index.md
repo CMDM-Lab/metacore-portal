@@ -5,7 +5,7 @@ title: 簡介
 
 台大基因體研究中心代謝體核心實驗室 MetaCore 成立的宗旨，主要是以領先全球的代謝體分析技術，提供代謝體的構成資訊，以促進轉譯研究與人體健康。基於跨專業領域技術的核心技術，代謝體核心實驗室 MetaCore 成為基礎研究和臨床診斷的橋樑，將代謝體相關學說的研究實現為影響及改善未來個人化醫療發展的先進技術。代謝體學主要的目標是「定量的研究生命系統對病理、生理刺激或基因突變的動態代謝體反應 (代謝物) 」。代謝體學與基因體學、轉錄體學、蛋白質學都是分子生物學的主要研究範疇 (圖例 1)。
 
-<figure>
+<figure class="wide">
 
 ![分子生物學的中心理念與代謝體](../assets/images/Metabolome.png)
 
@@ -16,15 +16,29 @@ title: 簡介
 
 本中心所提供的 4 種主要的代謝體學分析儀器包括：
 
-1. 超高壓液相色譜-串聯四極桿質譜儀 (UHPLC-MS/MS)
-2. 超高壓液相色譜-四極柱飛行時間質譜儀 (UHPLC-QTOF)
+<div class="instrument-grid">
+<figure class="instrument">
 
-   ![UHPLC-QTOF](../assets/images/UHPLC-QTOF.jpg)
-3. 氣相色譜-四極柱質譜儀 (GC-MS)
+<figcaption>1. 超高壓液相色譜-串聯四極桿質譜儀 (UHPLC-MS/MS)</figcaption>
+</figure>
+<figure class="instrument">
 
-   ![GC-MS](../assets/images/img_GC-MS.jpg)
-4. 二維氣相色譜-飛行時間質譜儀 (GC´GC-TOFMS)
+![UHPLC-QTOF](../assets/images/UHPLC-QTOF.jpg)
 
-   ![GC×GC-TOFMS](../assets/images/img_GC-TOF.jpg)
+<figcaption>2. 超高壓液相色譜-四極柱飛行時間質譜儀 (UHPLC-QTOF)</figcaption>
+</figure>
+<figure class="instrument">
+
+![GC-MS](../assets/images/img_GC-MS.jpg)
+
+<figcaption>3. 氣相色譜-四極柱質譜儀 (GC-MS)</figcaption>
+</figure>
+<figure class="instrument">
+
+![GC×GC-TOFMS](../assets/images/img_GC-TOF.jpg)
+
+<figcaption>4. 二維氣相色譜-飛行時間質譜儀 (GC´GC-TOFMS)</figcaption>
+</figure>
+</div>
 
 同時也歡迎本中心服務的使用者 (包括校內和校外)， 在進行申請服務前可先與本中心的研究人員進行討論。可以根據使用的儀器選擇適合的方式，目前已有多種參與本服務的方式：單一案件服務、併同多次案件實驗設計、測試、進行實驗、錯誤排除以及資料分析。

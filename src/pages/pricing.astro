@@ -14,7 +14,7 @@ const effective = data.effective ? data.effective.replaceAll('-', '.') : null;
     <section>
       <h3>{t.title}</h3>
       <div class="table-scroll">
-        <table>
+        <table class="price-table">
           <thead>
             <tr><th>服務項目</th><th>校內價格</th><th>學術價格</th><th>業界價格</th></tr>
           </thead>
@@ -22,9 +22,9 @@ const effective = data.effective ? data.effective.replaceAll('-', '.') : null;
             {t.items.map((it) => (
               <tr>
                 <td>{it.en}<br /><span class="item-zh">{it.zh}</span></td>
-                <td class="num">{fmt(it.internal)}</td>
-                <td class="num">{fmt(it.academic)}</td>
-                <td class="num">{fmt(it.industry)}</td>
+                <td class="num" data-label="校內">{fmt(it.internal)}</td>
+                <td class="num" data-label="學術">{fmt(it.academic)}</td>
+                <td class="num" data-label="業界">{fmt(it.industry)}</td>
               </tr>
             ))}
           </tbody>

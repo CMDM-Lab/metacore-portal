@@ -33,6 +33,7 @@ web.cmdm.tw/metacore_portal/* ── 301 (cmdm6) ──┘
 | 下載文件檔案 | `src/data/downloads.yaml`（檔案放 `public/files/`） |
 | 常見問題 | `src/pages/faq.md`（目錄依標題自動產生） |
 | 頁首選單、頁尾 | `src/layouts/Base.astro` |
+| 服務流程圖（常見問題 1.1、申請服務頁共用） | `src/data/service-flow.mmd`（Mermaid 語法） |
 
 注意事項：
 
@@ -44,6 +45,9 @@ web.cmdm.tw/metacore_portal/* ── 301 (cmdm6) ──┘
   不要寫 `/files/xxx.pdf`，因為網站在 `/metacore-portal/` 底下。
 - FAQ 的錨點由標題文字產生（例如 `#13-如何申請代謝體核心實驗室的各項服務`）。
   改標題文字後，指向它的連結也要改。測試會抓出斷掉的錨點。
+- 服務流程圖是 [Mermaid](https://mermaid.js.org/syntax/flowchart.html) 文字檔，在瀏覽器端繪製。
+  寬螢幕左右排 3 個階段，手機自動改成上下排。可以貼到 <https://mermaid.live/> 預覽。
+  顏色代表角色，圖例在 `src/scripts/diagrams.js`。
 - 新增下載檔案時不用填 `legacy_id`。`legacy_id` 只給舊站的下載連結轉址用。
 
 ## 舊網址轉址（cmdm6）

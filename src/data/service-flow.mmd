@@ -1,0 +1,47 @@
+%% 代謝體核心服務流程。常見問題 1.1 與申請服務頁共用這一份。
+%% 語法：https://mermaid.js.org/syntax/flowchart.html
+%% - 寬螢幕由左到右排 3 個階段；手機上 src/scripts/diagrams.js 會把第一行的 LR 換成 TB，改成上下排。
+%% - 顏色（classDef）代表負責的角色，圖例也在 src/scripts/diagrams.js。
+%% - 階段之間只用「階段 --> 階段」連線。若改成從某個方塊連到別的階段，
+%%   Mermaid 會忽略階段內的 direction，排版會亂掉。
+flowchart LR
+  subgraph s1["① 申請與審核"]
+    direction TB
+    apply(["申請<br/>線上填寫服務申請書"]):::user
+    review["審核"]:::admin
+    project["產生專案、估價<br/>（MetaCore Meeting）"]:::sys
+    assign["指派實驗操作人員（EI）<br/>與資料處理人員（DI）"]:::admin
+    apply --> review
+    review -- 修訂 --> apply
+    review -- 通過 --> project --> assign
+  end
+
+  subgraph s2["② 排程與送樣"]
+    direction TB
+    schedule["安排上機時間"]:::ei
+    notify["通知送樣"]:::ei
+    ship["送樣<br/>附樣品送樣單（紙本）<br/>與樣品分組表（電子檔）"]:::user
+    schedule --> notify --> ship
+  end
+
+  subgraph s3["③ 分析與報告"]
+    direction TB
+    prep["樣品前處理"]:::ei
+    run["上機分析"]:::ei
+    analysis["數據分析"]:::di
+    report["報告"]:::di
+    close["收費／結案"]:::close
+    prep --> run --> analysis --> report --> close
+  end
+
+  s1 --> s2 --> s3
+
+  classDef user  fill:#dbe8f6,stroke:#2f6db5,color:#12345a
+  classDef admin fill:#f7dddd,stroke:#b03a3a,color:#5a1414
+  classDef ei    fill:#e3f0d6,stroke:#5f8f2f,color:#2b4512
+  classDef di    fill:#fde6cf,stroke:#d97a1e,color:#5c3008
+  classDef sys   fill:#eeeeee,stroke:#777777,color:#222222
+  classDef close fill:#e8def3,stroke:#6d4a9a,color:#33204d
+  style s1 fill:#f7f9fc,stroke:#c9d3df
+  style s2 fill:#f7f9fc,stroke:#c9d3df
+  style s3 fill:#f7f9fc,stroke:#c9d3df

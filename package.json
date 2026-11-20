@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "astro": "~5.18.2",
+    "mermaid": "^11.17.2",
     "yaml": "^2.7.0"
   }
 }

@@ -52,14 +52,14 @@ const siteName = '臺灣大學基因體醫學研究中心 - 代謝體核心實�
     <main class="wrap">
       {title && <h1 class="page-title">{title}</h1>}
       {toc.length > 0 && (
-        <nav class="toc" aria-label="本頁目錄">
-          <strong>目錄</strong>
+        <details class="toc" open>
+          <summary>目錄</summary>
           <ul>
             {toc.map((h) => (
               <li class={`d${h.depth}`}><a href={`#${h.slug}`}>{h.text}</a></li>
             ))}
           </ul>
-        </nav>
+        </details>
       )}
       <article class="content">
         <slot />
@@ -72,5 +72,11 @@ const siteName = '臺灣大學基因體醫學研究中心 - 代謝體核心實�
         <p>聯絡信箱：ntumetacore@gmail.com ・ 服務申請系統：<a href="https://web.cmdm.tw/metacore/">https://web.cmdm.tw/metacore/</a></p>
       </div>
     </footer>
+    <script>
+      import '../scripts/diagrams.js';
+      // The FAQ table of contents is taller than a phone screen; start it closed there.
+      const toc = document.querySelector('details.toc');
+      if (toc && window.matchMedia('(max-width: 639px)').matches) toc.open = false;
+    </script>
   </body>
 </html>

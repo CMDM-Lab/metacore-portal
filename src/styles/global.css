@@ -82,3 +82,42 @@ main { padding-block: 28px 48px; }
 .content td.nowrap { white-space: nowrap; }
 .content li img { display: block; max-width: min(100%, 480px); margin: 8px 0 16px; }
 .content td.duties { min-width: 9em; }
+
+/* ---- image sizing ---- */
+.content figure.wide img { max-width: min(100%, 720px); }
+
+.instrument-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin: 1em 0 1.5em; }
+@media (min-width: 520px) { .instrument-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 900px) { .instrument-grid { grid-template-columns: repeat(4, 1fr); } }
+.content figure.instrument { margin: 0; border: 1px solid var(--border); border-radius: 8px; padding: 14px; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 10px; }
+.content figure.instrument p { margin: 0; }
+.content figure.instrument img { height: 180px; width: 100%; object-fit: contain; }
+.content figure.instrument figcaption { color: var(--text); font-size: .92rem; text-align: center; }
+
+/* ---- Mermaid diagrams (src/scripts/diagrams.js) ---- */
+.diagram { margin: 1.2em auto 1.5em; min-height: 120px; }
+.diagram.narrow svg { max-width: 380px !important; }
+.diagram svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
+.diagram-legend { list-style: none; padding: 0; margin: 12px 0 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 14px; font-size: .85rem; color: var(--muted); }
+.diagram-legend li { display: flex; align-items: center; gap: 6px; }
+.diagram-legend .swatch { width: 14px; height: 14px; border-radius: 3px; border: 1px solid; }
+.swatch.user  { background: #dbe8f6; border-color: #2f6db5; }
+.swatch.admin { background: #f7dddd; border-color: #b03a3a; }
+.swatch.ei    { background: #e3f0d6; border-color: #5f8f2f; }
+.swatch.di    { background: #fde6cf; border-color: #d97a1e; }
+.swatch.sys   { background: #eeeeee; border-color: #777777; }
+.swatch.close { background: #e8def3; border-color: #6d4a9a; }
+
+/* ---- pricing table: cards on phones, so no price column is hidden off-screen ---- */
+@media (max-width: 639px) {
+  .price-table thead { display: none; }
+  .price-table, .price-table tbody { display: block; }
+  .price-table tr { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 10px; overflow: hidden; }
+  .content .price-table td { border: 0; padding: 6px 10px; }
+  .content .price-table td:first-child { grid-column: 1 / -1; background: var(--blue-light); padding: 10px; }
+  .content .price-table td.num { text-align: left; white-space: normal; }
+  .price-table td.num::before { content: attr(data-label); display: block; color: var(--muted); font-size: .8rem; }
+}
+
+.toc summary { font-weight: 700; cursor: pointer; }
+.content td code { word-break: break-all; font-size: .88em; }
