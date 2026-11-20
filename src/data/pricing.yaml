@@ -1,0 +1,89 @@
+# 收費辦法頁面的資料來源。改價格只要改這個檔。
+#
+# 來源：20261201 ntu Metacore 更新牌價(含其他4個)_更新.docx
+# price 欄位：數字會自動加千分位；不是數字的字串（例如「客製化價格」）照原樣顯示。
+
+effective: "2026-12-01"   # 顯示為「自 2026.12.01 起實施」；不想顯示就設成 null
+unit_note: "價格為新台幣，每個樣品的價格（price/sample）。"
+
+tables:
+  - title: 代謝體核心實驗室服務項目
+    items:
+      - en: LC-MS Polar Metabolomic Profiling (TCA cycle, glycolysis, pentose phosphate pathway, purine/pyrimidine-related and amino acid metabolites)
+        zh: 液相層析質譜極性代謝體分析（三羧酸循環、糖解作用、 五碳糖磷酸路徑、嘌呤/嘧啶 相關及胺基酸代謝物）
+        internal: 3060
+        academic: 3370
+        industry: 6730
+      - en: LC-MS Lipidomic Profiling (specific lipid class metabolite)
+        zh: 液相層析質譜脂質體分析（特定脂質類別代謝物）
+        internal: 3290
+        academic: 3620
+        industry: 7240
+      - en: Stable Isotope Tracing Metabolic Flux Analysis-2 pathways
+        zh: 穩定同位素追蹤代謝流分析 (包含2種代謝路徑)
+        internal: 3500
+        academic: 3500
+        industry: 6970
+      - en: Stable Isotope Tracing Metabolic Flux Analysis-3 pathways
+        zh: 穩定同位素追蹤代謝流分析 (包含3種代謝路徑)
+        internal: 4500
+        academic: 4500
+        industry: 8960
+      - en: Fatty Acid Quantitation Analysis
+        zh: 脂肪酸定量分析
+        internal: 客製化價格
+        academic: 客製化價格
+        industry: 客製化價格
+      - en: Sphingolipid Quantitation Analysis
+        zh: 鞘脂定量分析
+        internal: 客製化價格
+        academic: 客製化價格
+        industry: 客製化價格
+      - en: Fecal Short Chain Fatty Acid (SCFA) Quantitation Analysis
+        zh: 糞便短碳鏈脂肪酸定量分析
+        internal: 客製化價格
+        academic: 客製化價格
+        industry: 客製化價格
+      - en: Trimethylamine N-oxide (TMAO)-related Metabolite Quantitation Analysis (Plasma, Urine)
+        zh: 氧化三甲胺相關代謝物定量分析（血液與尿液）
+        internal: 客製化價格
+        academic: 客製化價格
+        industry: 客製化價格
+      - en: Gut Microbiota Metabolite Quantitation Analysis
+        zh: 腸胃道菌代謝物定量分析
+        internal: 客製化價格
+        academic: 客製化價格
+        industry: 客製化價格
+      - en: Fecal Major Bile Acid Analysis
+        zh: 糞便主要膽酸定量分析
+        internal: 客製化價格
+        academic: 客製化價格
+        industry: 客製化價格
+      - en: Targeted Analysis
+        zh: 標的代謝物分析
+        internal: 客製化價格
+        academic: 客製化價格
+        industry: 客製化價格
+
+  - title: 臺灣代謝體學分析平台服務項目
+    items:
+      - en: Untargeted Metabolomics Analysis (Plasma, Serum, Cell, Urine)
+        zh: 非標的代謝體分析(血漿/血清/細胞/尿液)
+        internal: 4500
+        academic: 4500
+        industry: 8960
+      - en: Untargeted Metabolomics Analysis (Tissue)
+        zh: 非標的代謝體分析(組織)
+        internal: 4650
+        academic: 4650
+        industry: 價格另訂
+      - en: Untargeted Lipidomics Analysis (Plasma, Serum, Cell, Urine)
+        zh: 非標的脂質體分析(血漿/血清/細胞/尿液)
+        internal: 4500
+        academic: 4500
+        industry: 8960
+      - en: Untargeted Lipidomics Analysis (Tissue)
+        zh: 非標的脂質體分析(組織)
+        internal: 4650
+        academic: 4650
+        industry: 價格另訂

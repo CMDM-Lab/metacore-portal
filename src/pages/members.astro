@@ -1,0 +1,45 @@
+---
+// 實驗室成員。內容全部來自 src/data/members.yaml。
+import Base from '../layouts/Base.astro';
+import { Image } from 'astro:assets';
+import { parse } from 'yaml';
+import raw from '../data/members.yaml?raw';
+
+const data = parse(raw);
+const photos = import.meta.glob('../assets/images/*', { eager: true, import: 'default' });
+const photo = (name) => {
+  const img = photos[`../assets/images/${name}`];
+  if (!img) throw new Error(`members.yaml: photo "${name}" not found in src/assets/images/`);
+  return img;
+};
+const isEmail = (s) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s);
+---
+<Base title="實驗室成員">
+  <div class="member-grid">
+    {data.pis.map((p) => (
+      <div class="member-card">
+        {p.photo && <Image src={photo(p.photo)} alt={p.name} width={200} height={200} />}
+        <div>
+          <h2>{p.name}</h2>
+          {p.contact.map((c) => <p>{isEmail(c) ? <a href={`mailto:${c}`}>{c}</a> : c}</p>)}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>姓名</th><th>職稱</th><th>聯絡電話 / E-mail</th><th>工作內容</th></tr></thead>
+      <tbody>
+        {data.staff.map((s) => (
+          <tr>
+            <td class="nowrap">{s.name}</td>
+            <td class="nowrap">{s.title}</td>
+            <td>{s.contact.map((c) => <div>{isEmail(c) ? <a href={`mailto:${c}`}>{c}</a> : c}</div>)}</td>
+            <td class="duties">{s.duties.map((d) => <div>{d}</div>)}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</Base>

@@ -1,0 +1,76 @@
+---
+// Shared page shell. Used two ways:
+//   1. by .astro pages:   <Base title="...">...</Base>
+//   2. by .md pages via frontmatter `layout:`; Astro then passes
+//      `frontmatter` and `headings`. Set `toc: true` in frontmatter to show a
+//      table of contents built from the ## and ### headings.
+import '../styles/global.css';
+
+const { frontmatter = {}, headings = [] } = Astro.props;
+const title = Astro.props.title ?? frontmatter.title;
+const toc = frontmatter.toc ? headings.filter((h) => h.depth >= 2 && h.depth <= 3) : [];
+
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const nav = [
+  { href: '', label: '簡介' },
+  { href: 'members/', label: '實驗室成員' },
+  { href: 'pricing/', label: '收費辦法' },
+  { href: 'apply/', label: '申請服務' },
+  { href: 'downloads/', label: '下載文件檔案' },
+  { href: 'faq/', label: '常見問題' },
+];
+const current = Astro.url.pathname.replace(/\/?$/, '/');
+const isCurrent = (href) => current === base + href;
+const siteName = '臺灣大學基因體醫學研究中心 - 代謝體核心實驗室';
+---
+<!doctype html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title ? `${title} | MetaCore` : `MetaCore | ${siteName}`}</title>
+    <meta name="description" content="臺灣大學代謝體核心實驗室 (NTU Metabolomics Core Laboratory, MetaCore) 服務介紹、收費辦法與申請方式。" />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href={base}>
+          <span class="brand-mark">MetaCore</span>
+          <span class="brand-name">{siteName}</span>
+        </a>
+        <nav aria-label="主選單">
+          <ul>
+            {nav.map((n) => (
+              <li><a href={base + n.href} aria-current={isCurrent(n.href) ? 'page' : undefined}>{n.label}</a></li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap">
+      {title && <h1 class="page-title">{title}</h1>}
+      {toc.length > 0 && (
+        <nav class="toc" aria-label="本頁目錄">
+          <strong>目錄</strong>
+          <ul>
+            {toc.map((h) => (
+              <li class={`d${h.depth}`}><a href={`#${h.slug}`}>{h.text}</a></li>
+            ))}
+          </ul>
+        </nav>
+      )}
+      <article class="content">
+        <slot />
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>臺灣大學代謝體核心實驗室 NTU Metabolomics Core Laboratory</p>
+        <p>聯絡信箱：ntumetacore@gmail.com ・ 服務申請系統：<a href="https://web.cmdm.tw/metacore/">https://web.cmdm.tw/metacore/</a></p>
+      </div>
+    </footer>
+  </body>
+</html>

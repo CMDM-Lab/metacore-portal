@@ -1,0 +1,24 @@
+---
+// 下載文件檔案。清單來自 src/data/downloads.yaml，檔案放在 public/files/。
+import Base from '../layouts/Base.astro';
+import { parse } from 'yaml';
+import { statSync } from 'node:fs';
+import raw from '../data/downloads.yaml?raw';
+
+const data = parse(raw);
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const size = (file) => {
+  const bytes = statSync(new URL(`../../public/files/${file}`, import.meta.url)).size;
+  return bytes >= 1024 * 1024 ? `${(bytes / 1024 / 1024).toFixed(1)} MB` : `${Math.ceil(bytes / 1024)} KB`;
+};
+---
+<Base title="下載文件檔案">
+  <ul class="download-list">
+    {data.files.map((f) => (
+      <li>
+        <a href={`${base}files/${f.file}`} download>{f.title}</a>
+        <span class="meta">{f.file.split('.').pop().toUpperCase()} ・ {size(f.file)}</span>
+      </li>
+    ))}
+  </ul>
+</Base>

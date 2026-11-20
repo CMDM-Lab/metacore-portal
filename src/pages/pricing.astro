@@ -1,0 +1,36 @@
+---
+// 收費辦法。內容全部來自 src/data/pricing.yaml，這裡只管怎麼顯示。
+import Base from '../layouts/Base.astro';
+import { parse } from 'yaml';
+import raw from '../data/pricing.yaml?raw';
+
+const data = parse(raw);
+const fmt = (v) => (typeof v === 'number' ? v.toLocaleString('en-US') : v);
+const effective = data.effective ? data.effective.replaceAll('-', '.') : null;
+---
+<Base title="收費辦法">
+  <h2>代謝體核心實驗室服務項目與價格{effective && ` (自${effective}開始實施)`}</h2>
+  {data.tables.map((t) => (
+    <section>
+      <h3>{t.title}</h3>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>服務項目</th><th>校內價格</th><th>學術價格</th><th>業界價格</th></tr>
+          </thead>
+          <tbody>
+            {t.items.map((it) => (
+              <tr>
+                <td>{it.en}<br /><span class="item-zh">{it.zh}</span></td>
+                <td class="num">{fmt(it.internal)}</td>
+                <td class="num">{fmt(it.academic)}</td>
+                <td class="num">{fmt(it.industry)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  ))}
+  <p class="note">{data.unit_note}</p>
+</Base>

@@ -1,0 +1,33 @@
+# 實驗室成員頁面的資料來源。
+# photo：放在 src/assets/images/ 的檔名；沒有照片就刪掉這行。
+# contact：每一行一個項目；email 會自動變成 mailto 連結。
+#          電話一律加雙引號——YAML 裡「空白+#」之後會被當成註解吃掉（例如分機 #288781）。
+
+pis:
+  - name: 曾宇鳳教授
+    photo: 1202tseng.jpg
+    contact:
+      - "02.3366-4888#529"
+      - yjtseng@csie.ntu.edu.tw
+  - name: 郭錦樺教授
+    photo: 1203kuo.jpg
+    contact:
+      - (外線) 02.3366-8766
+      - (臺大內線)先撥606，再撥68766
+      - kuoch@ntu.edu.tw
+
+staff:
+  - name: 郭翰駿
+    title: 副技師
+    contact:
+      - "02.2312-3456 #288781"
+    duties:
+      - 代謝體實驗分析
+  - name: 郭天爵
+    title: 博士後研究
+    contact:
+      - "02.3366-4888 #403"
+      - ntumetacore@gmail.com
+    duties:
+      - 網站維護
+      - 代謝體圖譜資料分析

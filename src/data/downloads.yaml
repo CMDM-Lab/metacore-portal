@@ -1,0 +1,23 @@
+# 下載文件檔案頁面的資料來源。檔案放在 public/files/。
+# legacy_id：舊 Joomla 站的下載編號（index.php/downloads?task=download&id=N），
+#            cmdm6 的轉址規則用它把舊連結導到新檔案。新增的檔案不用填。
+
+files:
+  - title: 樣品收送記錄表
+    file: sample-submission-record.docx
+    legacy_id: 1
+  - title: Mapping Table
+    file: mapping-table.csv
+    legacy_id: 2
+  - title: Mapping Table - 範例
+    file: mapping-table-example.xlsx
+    legacy_id: 3
+  - title: 如何申請MetaCore服務
+    file: how-to-apply-metacore.docx
+    legacy_id: 4
+  - title: 代謝體核心實驗室樣品採集流程
+    file: sample-collection-protocol.pdf
+    legacy_id: 5
+  - title: 細胞萃取流程
+    file: cell-extraction-protocol.pdf
+    legacy_id: 6

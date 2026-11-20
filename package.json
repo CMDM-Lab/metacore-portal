@@ -1,0 +1,17 @@
+{
+  "name": "metacore-portal",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "NTU Metabolomics Core Laboratory (MetaCore) portal - static site",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "test": "node --test tests/data.test.mjs tests/links.test.mjs"
+  },
+  "dependencies": {
+    "astro": "~5.18.2",
+    "yaml": "^2.7.0"
+  }
+}
