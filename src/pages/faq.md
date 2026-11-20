@@ -16,8 +16,6 @@ toc: true
 
 <div class="diagram" data-diagram="service-flow"></div>
 
-下載：[樣品收送記錄表](../files/sample-submission-record.docx)、[樣品分組表（Mapping Table）](../files/mapping-table.csv)、[Mapping Table 範例](../files/mapping-table-example.xlsx)
-
 ### 1.2. 代謝體核心實驗室提供那些服務項目?
 
 目前核心實驗室提供的服務項目與價格，請見[收費辦法](../pricing/)。如有特別需求，需要客製化服務則請與實驗室PI聯絡。
@@ -77,13 +75,13 @@ Untargeted metabolomics profiling analysis試著偵測單一樣品中所有包�
 
 ### 2.2. 血液尿液等臨床檢體的檢體收集注意事項?
 
-臨床檢體注意事項請參考[代謝體核心實驗室樣品採集流程](../files/sample-collection-protocol.pdf) 。
+臨床檢體注意事項請與**Metacore Lab** (ntumetacore@gmail.com) 聯絡。
 
 ### 2.3. 是否建議自行樣品萃取?
 
 一般來說，大部分的樣品種類我們都可以代為萃取，細胞樣品因為不易保存，所以建議使用者自行萃取。
 
-細胞萃取的建議作法請參考 [cell-extraction-protocol.pdf](../files/cell-extraction-protocol.pdf)
+細胞萃取的建議作法請與**Metacore Lab** (ntumetacore@gmail.com) 聯絡。
 
 ### 2.4. 檢品要如何運送?
 

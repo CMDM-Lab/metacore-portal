@@ -64,3 +64,13 @@ test('data files: no unquoted value followed by " #" (YAML comment trap)', () =>
   }
   assert.deepEqual(bad, []);
 });
+
+// The cmdm6 redirect rules point old download links at public/files/. If a file
+// is removed but its rule stays, old links 301 to a 404.
+test('deploy/cmdm6 redirect: every target file exists in public/files', () => {
+  const conf = readFileSync(new URL('deploy/cmdm6-metacore-portal-redirect.conf', root), 'utf8');
+  const targets = [...conf.matchAll(/\/metacore-portal\/files\/(\S+)/g)].map((m) => m[1]);
+  assert.ok(targets.length > 0, 'expected at least one file redirect');
+  const missing = targets.filter((f) => !existsSync(new URL(`public/files/${f}`, root)));
+  assert.deepEqual(missing, [], 'redirect points to a file that is not in public/files/');
+});

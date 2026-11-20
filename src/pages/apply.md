@@ -29,8 +29,6 @@ title: 申請服務
 
 <div class="diagram" data-diagram="service-flow"></div>
 
-下載：[樣品收送記錄表](../files/sample-submission-record.docx)、[樣品分組表（Mapping Table）](../files/mapping-table.csv)、[Mapping Table 範例](../files/mapping-table-example.xlsx)
-
 ### 1.2. 代謝體核心實驗室提供那些服務項目?
 
 目前核心實驗室提供的服務項目與價格，請見[收費辦法](../pricing/)。如有特別需求，需要客製化服務則請與實驗室PI聯絡。
