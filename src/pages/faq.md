@@ -160,7 +160,7 @@ Untargeted metabolomics profiling analysis試著偵測單一樣品中所有包�
 - LC-MS Lipidomic Profiling
 - Untargeted Metabolomics Analysis、Untargeted Lipidomics Analysis
 
-2\. 定量（提供濃度值）：
+2\. 定量分析：
 
 - Fatty Acid Quantitation Analysis（脂肪酸定量分析）
 - Sphingolipid Quantitation Analysis（鞘脂定量分析）
