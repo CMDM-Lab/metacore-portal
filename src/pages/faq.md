@@ -22,7 +22,7 @@ toc: true
 
 目前核心實驗室提供的服務項目與價格，請見[收費辦法](../pricing/)。如有特別需求，需要客製化服務則請與實驗室PI聯絡。
 
-Fatty acid Analysis目前設計為血液的萃取方法，若其他的樣品基質，都會需要再做萃取開發條件上的確認，需要一段時間才能建立。
+Fatty Acid Quantitation Analysis（脂肪酸定量分析）目前設計為血液的萃取方法，若其他的樣品基質，都會需要再做萃取開發條件上的確認，需要一段時間才能建立。
 
 ### 1.3. 如何申請代謝體核心實驗室的各項服務?
 
@@ -36,7 +36,7 @@ Targeted metabolomics analysis可針對一定數量已知代謝物，藉由比�
 
 ### 1.4. 如何選擇分析平台?
 
-一般來說，若是貴單位已經有明確的分子target則建議使用 targeted analysis項目，如果沒有特定的目標則建議先使用LC-MS metabolic profiling做初步分析; 若想看的代謝物屬極性較高分子，可選擇LC-MS polar metabolic profiling ; 若是想看脂質的變化則建議選擇LC-MS lipidomic profiling 或是Fatty Acid Analysis。
+一般來說，若是貴單位已經有明確的分子target則建議使用 targeted analysis項目，如果沒有特定的目標則建議先使用LC-MS metabolic profiling做初步分析; 若想看的代謝物屬極性較高分子，可選擇LC-MS polar metabolic profiling ; 若是想看脂質的變化則建議選擇LC-MS lipidomic profiling 或是Fatty Acid Quantitation Analysis。
 
 ### 1.5. 是否可以協助尋找某一種代謝物？
 
@@ -48,11 +48,15 @@ Targeted metabolomics analysis可針對一定數量已知代謝物，藉由比�
 
 2\. 您有興趣的代謝物不在標準品資料庫中：
 
-我們依然可以幫您偵測，但因為沒有標準品做確認，故不確定性較高。
+標準報告中的代謝物名稱與統計分析，只包含與標準品資料庫比對成功的訊號。不在資料庫中的代謝物需要另案客製化，請先與**Metacore Lab** (ntumetacore@gmail.com) 討論可行性與費用。
+
+非標的分析可另外提供依 m/z 比對 HMDB 資料庫的推定候選名單。這份名單只依分子量比對，不是鑑定結果，不確定性高。
 
 ### 1.6. 是否有提供untargeted metabolomic profiling的服務？
 
 Untargeted metabolomics profiling analysis試著偵測單一樣品中所有包含已知或未知之代謝物。本核心實驗室亦提供此項服務。
+
+非標的分析的報告會附上所有偵測到的訊號（未鑑定的原始波峰高），供您參考。代謝物名稱與統計分析只包含與標準品資料庫比對成功的訊號（見 [3.2](#32-訊號偵測與代謝物鑑定方式為何) 與 [4.4](#44-分析報告包含許多檔案我該用哪一個)）。
 
 ### 1.7. 是否可以協助實驗設計以及分組？
 
@@ -62,14 +66,14 @@ Untargeted metabolomics profiling analysis試著偵測單一樣品中所有包�
 
 ### 2.1. 一般分析需要多少生物檢體量?
 
-目前核心實驗室有接受的樣品種類有血清、尿液、CSF、肺泡沖洗液、組織、細胞、細胞培養液等等。一般的代謝體服務通常需要100 μl 的樣品量 (針對血清、尿液、CSF、肺泡沖洗液等biofluids)，組織需要10-20 mg，細胞則需要 1x10<sup>6</sup>以上的細胞數目。
+目前核心實驗室有接受的樣品種類有血清、尿液、CSF、肺泡沖洗液、組織、細胞、細胞培養液等等。一般的代謝體服務通常需要100 μl 的樣品量 (針對血清、尿液、CSF、肺泡沖洗液等biofluids)，組織需要50-100 mg，細胞則需要 1x10<sup>6</sup>以上的細胞數目。
 
 | 服務名稱 | 藥粉 | 組織 | 血漿<br>臨床 \| 動物 | 血清<br>臨床 \| 動物 | 尿液<br>臨床 \| 動物 | CSF | 細胞 | 細胞培養液 | Note |
 |---|---|---|---|---|---|---|---|---|---|
 | LC-MS metabolic profiling<br>小分子代謝體分析 | NA | 50-100 mg | 100 μl | 100 μl | 100 μl | 100 μl | 10^6 | 100 μl |  |
 | LC-MS polar metabolic profiling<br>極性代謝體分析 | NA | 50-100 mg | 100 μl | 100 μl | 100 μl | 100 μl | 10^6 | 100 μl |  |
 | LC-MS lipidomic profiling<br>脂質代謝體分析 | NA | 50-100 mg | 100 μl | 100 μl | 100 μl | 100 μl | 10^6 | 100 μl | 視欲測試lipid而定 |
-| Fatty Acid Analysis<br>C14\~C26脂肪酸相對定量 | NA | 50-100 mg | 100 μl | 100 μl | testing | testing | testing | testing |  |
+| Fatty Acid Quantitation Analysis<br>脂肪酸定量分析（C14\~C26） | NA | 50-100 mg | 100 μl | 100 μl | testing | testing | testing | testing |  |
 
 ### 2.2. 血液尿液等臨床檢體的檢體收集注意事項?
 
@@ -129,17 +133,17 @@ Untargeted metabolomics profiling analysis試著偵測單一樣品中所有包�
 
 ## 4. 報告解讀詢問
 
-### 4.1. 為何報告中會有同名的代謝物？
+### 4.1. 報告中的代謝物名稱怎麼看？
 
-初步定性分析中，若該代謝物的搜尋範圍內，偵測到多個波峰，多個波峰皆有可能是該代謝物，此為本分析方法限制。
+我們以 m/z 與滯留時間（RT）將訊號與標準品資料庫比對，比對到的名稱寫在 `compound_name` 欄。
 
-從PeakTable內每一個row代表一個波峰訊號，而不是一個row為一個代謝物，所以在檔案內標註是PeakName，而不是MetaboliteName。我們使用標準品資料庫的m/z與retention time (RT)對波峰比對，若比對到多個代謝物，則會以 \| 做區隔，例如: Betaine \| L-Valine
+- **名稱中有 `|`**：一個訊號同時符合多個標準品，例如：Betaine \| L-Valine。這些代謝物的 m/z 與 RT 非常接近，訊號可能交疊。若想檢視的代謝物屬於極性小分子，建議改用適合極性小分子的HILIC分析平台（LC-MS polar metabolic profiling），可將極性小分子更有效分離。
+- **同一個代謝物有多個波峰**：若某個代謝物的搜尋範圍內偵測到多個波峰，報告只保留平均訊號強度最高的一個，每個名稱只出現一次。這是本分析方法的限制。若顯著代謝物需要確認，可以進行MS/MS實驗。
+- **離子模式**：正、負離子模式的訊號分開列出，以 `mode` 欄（pos／neg）區分。
 
-如果代謝物們m/z非常接近且RT也接近，代謝物們訊號是有可能交疊出現而被偵測到，所以如果想檢視的代謝物屬於極性小分子，我們會建議改用適合極性小分子的HILIC分析平台 （LC-MS polar metabolic profiling），可將極性小分子更有效分離避免代謝物交疊出現情形。
+各欄位的說明請見報告中的 `*_peak_table_README.txt`。
 
-如果代謝物名字後面有 (1) (2) 則代表該代謝物的m/z與RT容忍範圍內有偵測到多個波峰，數字代表出現的順序，如L-Alanine (1)，L-Alanine (2)為偵測到兩個波峰都可能是L-Alanine，如果經統計檢定判斷是顯著差異的波峰，可以進行MS/MS實驗再確認。
-
-PeakName後面\[M+H\]+或\[M+Na\]+代表小分子經過離子化之後帶有氫離子或鈉離子而被偵測到。
+**早期案件**：早期報告的格式不同。欄名為 PeakName，每一個 row 代表一個波峰訊號。同一個代謝物的多個波峰以 (1)、(2) 編號，例如 L-Alanine (1)、L-Alanine (2)。名稱後面的 \[M+H\]+ 或 \[M+Na\]+ 代表小分子離子化之後帶有氫離子或鈉離子。
 
 ### 4.2. 報告中數值代表的意思為何？
 
@@ -147,21 +151,23 @@ PeakName後面\[M+H\]+或\[M+Na\]+代表小分子經過離子化之後帶有氫�
 
 ### 4.3. 報告的結果是定量還是定性？
 
-我們提供的服務有分相對定量和絕對定量
+依服務項目分為兩類（項目名稱與價格見[收費辦法](../pricing/)）：
 
-1\. 相對定量(僅提供訊號強度值)：
+1\. 相對定量（僅提供訊號強度值）：
 
-LC-MS metabolic profiling (T3 column)
+- LC-MS metabolic profiling (T3 column)
+- LC-MS Polar Metabolomic Profiling (HILIC column)
+- LC-MS Lipidomic Profiling
+- Untargeted Metabolomics Analysis、Untargeted Lipidomics Analysis
 
-LC-MS lipidomic profiling
+2\. 定量（提供濃度值）：
 
-LC-MS polar metabolic profiling (HILIC column)
-
-Fatty Acid Relative Quantitation Analysis - 23種脂肪酸相對定量分析
-
-2\. 絕對定量(提供絕對濃度值)：
-
-Fatty Acid Absolute Quantitation Analysis - 23種脂肪酸絕對定量分析
+- Fatty Acid Quantitation Analysis（脂肪酸定量分析）
+- Sphingolipid Quantitation Analysis（鞘脂定量分析）
+- Fecal Short Chain Fatty Acid (SCFA) Quantitation Analysis（糞便短碳鏈脂肪酸定量分析）
+- Trimethylamine N-oxide (TMAO)-related Metabolite Quantitation Analysis（氧化三甲胺相關代謝物定量分析）
+- Gut Microbiota Metabolite Quantitation Analysis（腸胃道菌代謝物定量分析）
+- Fecal Major Bile Acid Analysis（糞便主要膽酸定量分析）
 
 如果在相對定量研究中發現具有統計差異的代謝物或是想對有興趣的代謝物做定量的分析，請向**Metacore Lab** (ntumetacore@gmail.com)聯絡。我們將為您做進一步的說明。
 
@@ -177,7 +183,8 @@ Fatty Acid Absolute Quantitation Analysis - 23種脂肪酸絕對定量分析
 | `analysis_N/tier_result.txt` | 採用的顯著性層級與代謝物數量 |
 | `analysis_N/pathway/pathway_results.csv` | 代謝途徑分析結果 |
 | `results_targeted_metaboanalyst_analysis_N.csv` | 正規化後的代謝物矩陣，可匯入 MetaboAnalyst 做進一步分析 |
-| `*_peak_table.csv` | 比對到標準品的代謝物原始波峰高（未正規化） |
+| `*_peak_table.csv` | 原始波峰高（未正規化）。標的分析：只含比對到標準品的代謝物。非標的分析：所有偵測到的訊號（未鑑定） |
+| `results_targeted_detailed.csv` | 只有非標的分析附上：比對到標準品的訊號與正規化後強度，供進階分析 |
 | `*_MappingTable.csv` | 樣本與分組對應表 |
 
 每個比較組合（Analysis）有一個 analysis_N 資料夾。
