@@ -60,7 +60,7 @@ main { padding-block: 28px 48px; }
 .toc ul { margin: 6px 0 0; padding-left: 1.2em; }
 .toc li.d2 { font-weight: 600; margin-top: 6px; list-style: none; margin-left: -1.2em; }
 
-.member-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin-bottom: 32px; }
+.member-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 400px)); justify-content: center; gap: 16px; margin-bottom: 32px; }
 .member-card { display: flex; gap: 14px; border: 1px solid var(--border); border-radius: 8px; padding: 14px; }
 .member-card img { width: 100px; height: 100px; object-fit: cover; border-radius: 6px; flex-shrink: 0; }
 .member-card h2 { font-size: 1.1rem; margin: 0 0 4px; border: 0; padding: 0; }
