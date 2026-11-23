@@ -14,14 +14,14 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const nav = [
   { href: '', label: '簡介' },
   { href: 'members/', label: '實驗室成員' },
-  { href: 'pricing/', label: '收費辦法' },
+  { href: 'pricing/', label: '服務收費標準' },
   { href: 'apply/', label: '申請服務' },
   { href: 'downloads/', label: '下載文件檔案' },
   { href: 'faq/', label: '常見問題' },
 ];
 const current = Astro.url.pathname.replace(/\/?$/, '/');
 const isCurrent = (href) => current === base + href;
-const siteName = '臺灣大學基因體醫學研究中心 - 代謝體核心實驗室';
+const siteName = '臺灣大學基因體暨精準醫學研究中心 - 代謝體核心實驗室';
 ---
 <!doctype html>
 <html lang="zh-Hant-TW">
@@ -29,7 +29,7 @@ const siteName = '臺灣大學基因體醫學研究中心 - 代謝體核心實�
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title ? `${title} | MetaCore` : `MetaCore | ${siteName}`}</title>
-    <meta name="description" content="臺灣大學代謝體核心實驗室 (NTU Metabolomics Core Laboratory, MetaCore) 服務介紹、收費辦法與申請方式。" />
+    <meta name="description" content="臺灣大學代謝體核心實驗室 (NTU Metabolomics Core Laboratory, MetaCore) 服務介紹、服務收費標準與申請方式。" />
     <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
   </head>
   <body>

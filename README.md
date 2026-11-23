@@ -28,7 +28,7 @@ web.cmdm.tw/metacore_portal/* ── 301 (cmdm6) ──┘
 |---|---|
 | 簡介（首頁） | `src/pages/index.md` |
 | 實驗室成員 | `src/data/members.yaml`（照片放 `src/assets/images/`） |
-| 收費辦法 | `src/data/pricing.yaml` |
+| 服務收費標準 | `src/data/pricing.yaml`（單一總表，有價格的項目放前面） |
 | 申請服務 | `src/pages/apply.md` |
 | 下載文件檔案 | `src/data/downloads.yaml`（檔案放 `public/files/`） |
 | 常見問題 | `src/pages/faq.md`（目錄依標題自動產生） |

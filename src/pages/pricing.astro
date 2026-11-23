@@ -1,5 +1,5 @@
 ---
-// 收費辦法。內容全部來自 src/data/pricing.yaml，這裡只管怎麼顯示。
+// 服務收費標準。內容全部來自 src/data/pricing.yaml，這裡只管怎麼顯示。
 import Base from '../layouts/Base.astro';
 import { parse } from 'yaml';
 import raw from '../data/pricing.yaml?raw';
@@ -8,30 +8,25 @@ const data = parse(raw);
 const fmt = (v) => (typeof v === 'number' ? v.toLocaleString('en-US') : v);
 const effective = data.effective ? data.effective.replaceAll('-', '.') : null;
 ---
-<Base title="收費辦法">
+<Base title="服務收費標準">
   <h2>代謝體核心實驗室服務項目與價格{effective && ` (自${effective}開始實施)`}</h2>
-  {data.tables.map((t) => (
-    <section>
-      <h3>{t.title}</h3>
-      <div class="table-scroll">
-        <table class="price-table">
-          <thead>
-            <tr><th>服務項目</th><th>校內價格</th><th>學術價格</th><th>業界價格</th></tr>
-          </thead>
-          <tbody>
-            {t.items.map((it) => (
-              <tr>
-                <td>{it.en}<br /><span class="item-zh">{it.zh}</span></td>
-                <td class="num" data-label="校內">{fmt(it.internal)}</td>
-                <td class="num" data-label="學術">{fmt(it.academic)}</td>
-                <td class="num" data-label="業界">{fmt(it.industry)}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </section>
-  ))}
+  <div class="table-scroll">
+    <table class="price-table">
+      <thead>
+        <tr><th>服務項目</th><th>校內價格</th><th>學術價格</th><th>業界價格</th></tr>
+      </thead>
+      <tbody>
+        {data.items.map((it) => (
+          <tr>
+            <td>{it.en}<br /><span class="item-zh">{it.zh}</span></td>
+            <td class="num" data-label="校內">{fmt(it.internal)}</td>
+            <td class="num" data-label="學術">{fmt(it.academic)}</td>
+            <td class="num" data-label="業界">{fmt(it.industry)}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
   <p class="note">{data.unit_note}</p>
   {data.notes?.length > 0 && (
     <ul class="note">

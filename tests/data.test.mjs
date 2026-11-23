@@ -14,21 +14,28 @@ test('pricing.yaml: every item has en, zh and 3 prices', () => {
   if (data.effective !== null) {
     assert.match(String(data.effective), /^\d{4}-\d{2}-\d{2}$/, 'effective must be YYYY-MM-DD or null');
   }
-  assert.ok(data.tables.length > 0);
-  for (const t of data.tables) {
-    assert.ok(t.title, 'table needs a title');
-    for (const it of t.items) {
-      const where = `${t.title} / ${it.en}`;
-      assert.ok(it.en && it.zh, `${where}: en and zh are required`);
-      for (const k of ['internal', 'academic', 'industry']) {
-        const v = it[k];
-        const ok = (typeof v === 'number' && Number.isInteger(v) && v > 0) || (typeof v === 'string' && v.trim() && !/^[\d,]+$/.test(v));
-        // A string of digits ("3,060") means the price was quoted in YAML and
-        // would skip number formatting; write it as a bare number instead.
-        assert.ok(ok, `${where}: ${k}="${v}" must be a positive integer or a text like 客製化價格`);
-      }
+  assert.ok(data.items.length > 0, 'items must not be empty');
+  for (const it of data.items) {
+    const where = it.en;
+    assert.ok(it.en && it.zh, `${where}: en and zh are required`);
+    for (const k of ['internal', 'academic', 'industry']) {
+      const v = it[k];
+      const ok = (typeof v === 'number' && Number.isInteger(v) && v > 0) || (typeof v === 'string' && v.trim() && !/^[\d,]+$/.test(v));
+      // A string of digits ("3,060") means the price was quoted in YAML and
+      // would skip number formatting; write it as a bare number instead.
+      assert.ok(ok, `${where}: ${k}="${v}" must be a positive integer or a text like 客製化價格`);
     }
   }
+});
+
+// MetaCore asked (2026-11) for one combined table with priced items first.
+// An item counts as priced if any of its 3 prices is a number.
+test('pricing.yaml: priced items come before 客製化價格 items', () => {
+  const { items } = load('src/data/pricing.yaml');
+  const priced = items.map((it) => ['internal', 'academic', 'industry'].some((k) => typeof it[k] === 'number'));
+  const firstCustom = priced.indexOf(false);
+  const late = firstCustom < 0 ? [] : items.slice(firstCustom).filter((_, i) => priced[firstCustom + i]).map((it) => it.en);
+  assert.deepEqual(late, [], 'move these priced items above the first 客製化價格 item');
 });
 
 test('downloads.yaml: files exist and legacy ids are unique', () => {
