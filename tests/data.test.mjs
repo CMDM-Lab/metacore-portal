@@ -81,3 +81,17 @@ test('deploy/cmdm6 redirect: every target file exists in public/files', () => {
   const missing = targets.filter((f) => !existsSync(new URL(`public/files/${f}`, root)));
   assert.deepEqual(missing, [], 'redirect points to a file that is not in public/files/');
 });
+
+// MetaCore (2026-11-23): an item missing from the new price list is withdrawn.
+// "LC-MS metabolic profiling" (T3 column) was withdrawn; pages must not offer it.
+// "LC-MS polar metabolic profiling" is still offered, so it is not matched.
+test('pages: no withdrawn service is mentioned', async () => {
+  const { readdirSync } = await import('node:fs');
+  const bad = [];
+  for (const f of readdirSync(new URL('src/pages/', root)).filter((f) => f.endsWith('.md'))) {
+    readFileSync(new URL(`src/pages/${f}`, root), 'utf8').split('\n').forEach((line, i) => {
+      if (/LC-MS metabolic profiling/i.test(line)) bad.push(`src/pages/${f}:${i + 1}`);
+    });
+  }
+  assert.deepEqual(bad, [], 'LC-MS metabolic profiling was withdrawn on 2026-12-01');
+});
